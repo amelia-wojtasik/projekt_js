@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <container>
+        <div class="left"></div>
+        <main>
+            <h1>QUIZ O KOTKACH</h1>
+            <button id="button">Zaczynajmy!</button>
+            <section class="all">
+                <h2></h2>
+                <p id="p1"></p>
+                <p id="p2"></p>
+                <p id="p3"></p>
+                <button id="next">DALEJ</button>
+            </section>
+        </main>
+        <div class="right"></div>
+    </container>
+
+    <script>
+        function start(){
+            //ukrywanie sekcji z pytaniami
+            const section=document.querySelector('section');
+            section.classList.toggle('hide');
+            //wcisniecie guzika 'zaczynajmy'
+            const button=document.getElementById("button");
+            button.addEventListener('click', ()=>{
+            button.remove();
+            section.classList.remove('hide');
+            });
+        }
+
+        function question1(){
+            //wyswietlenie pytania
+            const pytanie=document.querySelector('h2');
+            const tresc=document.createTextNode('Ile % całego swojego życia przesypiają koty?')
+            pytanie.appendChild(tresc);
+            //odpowiedzi
+            const odpowiedzi = ["70%", "80%", "90%"];
+            const p = document.querySelectorAll('p');
+            //petla ktora wpisuje odpowiedzi do pol
+            for(let i=0;i<3;i++){
+                odp=document.createTextNode(`${odpowiedzi[i]}`);
+                p[i].appendChild(odp)
+            }
+            p.addEventListener('click', ()=>{
+                
+            });
+
+        }
+
+        start();
+        question1();
+        
+
+
+    </script>
+</body>
+</html>
