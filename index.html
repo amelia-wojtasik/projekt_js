@@ -17,18 +17,22 @@
             <button id="button">Zaczynajmy!</button>
             <section class="all">
                 <h2></h2>
-                <p><input type="radio" name="odp" id="p1"></p>
-                <p><input type="radio" name="odp" id="p2"></p>
-                <p><input type="radio" name="odp" id="p3"></p>
-                <button id="next">DALEJ</button>
+                <div class=".question"><input type="radio" name="odp" id="p1"><p></p></div>
+                <div class=".question"><input type="radio" name="odp" id="p2"><p></p></div>
+                <div class=".question"><input type="radio" name="odp" id="p3"><p></p></div>
+                <button id="next" class="next">DALEJ</button>
             </section>
         </main>
         <div class="right"></div>
     </container>
 
     <script>
-        //zmienna przechowujaca punkty
-        let wyniki=0;
+        //zmienne przechowujaca punkty
+        let odpowiedz1=0;
+        let odpowiedz2=0;
+        let odpowiedz3=0;
+        let odpowiedz4=0;
+        let odpowiedz5=0;
 
         function start(){
             //ukrywanie sekcji z pytaniami
@@ -42,6 +46,15 @@
             });
         }
 
+        function clearAnswers(){
+			const input = document.querySelectorAll('input');
+ 
+			for(let i=0; i<input.length; i++)
+			{
+				input[i].checked = false;
+			}
+		}
+
         function question1(){
             //wyswietlenie pytania
             const pytanie=document.querySelector('h2');
@@ -51,79 +64,158 @@
             const p = document.querySelectorAll('p');
             //petla ktora wpisuje odpowiedzi do pol
             for(let i=0;i<3;i++){
-                odp=document.createTextNode(`${odpowiedzi[i]}`);
-                p[i].appendChild(odp)
+                p[i].textContent=`${odpowiedzi[i]}`;
             }
             //sprawdzanie poprawnej odpowiedzi
             const next=document.getElementById("next");
+            const inputs=document.querySelectorAll('input');
             next.addEventListener('click', () => {
-                const odp1=document.getElementById("p1");
-                if(odp1.checked==true){
-                    console.log("poprawna odp");
-                    wyniki++;
+                //const odp1=document.getElementById("p1");
+                if(inputs[0].checked==true){
+                    odpowiedz1=1;
+                    console.log(odpowiedz1);
                 }
+                else odpowiedz1=0;
+                clearAnswers();
             });
         }
 
         function question2(){
-            //wyswietlenie pytania
             const pytanie=document.querySelector('h2');
             pytanie.textContent=`Jaki powinien być koci nos?`;
-            //odpowiedzi
-            const odpowiedzi = ["To bez znaczenia.", "Suchy.", "Mokry"];
+            
+            const odpowiedzi = ["To bez znaczenia.", "Suchy.", "Mokry."];
             const p = document.querySelectorAll('p');
-            //petla ktora wpisuje odpowiedzi do pol
+            
             for(let i=0;i<3;i++){
-                odp=document.createTextNode(`${odpowiedzi[i]}`);
-                p[i].appendChild(odp)
+                p[i].textContent=`${odpowiedzi[i]}`;
             }
-            //sprawdzanie poprawnej odpowiedzi
+            
             const next=document.getElementById("next");
+            const inputs=document.querySelectorAll('input');
             next.addEventListener('click', () => {
-                const odp3=document.getElementById("p1");
-                if(odp3.checked==true){
-                    console.log("poprawna odp");
-                    wyniki++;
+                //const odp2=document.getElementById("p3");
+                if(inputs[2].checked==true){
+                    odpowiedz2=1;
+                    console.log(odpowiedz2);
                 }
-            //zmiana klasy buttona, bedzie to potrzebne potem do addeventlistenera
-            next.classList.add("next2");
+                else odpowiedz2=0;
+                clearAnswers();
+                question3();          
             });
         }  
 
-        function question3(){
-            //wyswietlenie pytania
+       function question3(){
             const pytanie=document.querySelector('h2');
-            pytanie.textContent=`Jaki powinien być koci nos?`;
-            //odpowiedzi
-            const odpowiedzi = ["To bez znaczenia", "Suchy", "Mokry"];
+            pytanie.textContent=`Jakiego smaku koty nie czują?`;
+            
+            const odpowiedzi = ["Słonego.", "Gorzkiego.", "Słodkiego."];
             const p = document.querySelectorAll('p');
-            //petla ktora wpisuje odpowiedzi do pol
+            
             for(let i=0;i<3;i++){
-                odp=document.createTextNode(`${odpowiedzi[i]}`);
-                p[i].appendChild(odp)
+                p[i].textContent=`${odpowiedzi[i]}`;
             }
-            //sprawdzanie poprawnej odpowiedzi
-            const next=document.getElementById("next");
+            
+            const next=document.querySelector(".next");
+            const inputs=document.querySelectorAll('input');
             next.addEventListener('click', () => {
-                const odp3=document.getElementById("p1");
-                if(odp3.checked==true){
-                    console.log("poprawna odp");
-                    wyniki++;
+                //const odp3=document.getElementById("p3");
+                if(inputs[2].checked==true){
+                    odpowiedz3=1;
+                    console.log(odpowiedz3);
                 }
-            //zmiana klasy buttona, bedzie to potrzebne potem do addeventlistenera
-            next.classList.add("next2");
+                else odpowiedz3=0;
+                clearAnswers();
+                question4();
             });
-        }  
+        }
 
+        function question4(){
+            const pytanie=document.querySelector('h2');
+            pytanie.textContent=`Ile koty mają mięśni kontrolujących uszy?`;
+            
+            const odpowiedzi = ["10", "20", "30"];
+            const p = document.querySelectorAll('p');
+            
+            for(let i=0;i<3;i++){
+                p[i].textContent=`${odpowiedzi[i]}`;
+            }
+            
+            const next=document.querySelector(".next");
+            const inputs=document.querySelectorAll('input');
+            next.addEventListener('click', () => {
+                //const odp4=document.getElementById("p2");
+                if(inputs[1].checked==true){
+                    odpowiedz4=1;
+                    console.log(odpowiedz4);
+                }
+                else odpowiedz4=0;
+                clearAnswers();
+                question5();
+            });
+        }
+
+        function question5(){
+            const pytanie=document.querySelector('h2');
+            pytanie.textContent=`Ile żyje przeciętny kot?`;
+            
+            const odpowiedzi = ["2-16 lat", "4-13 lat", "1-11 lat"];
+            const p = document.querySelectorAll('p');
+            
+            for(let i=0;i<3;i++){
+                p[i].textContent=`${odpowiedzi[i]}`;
+            }
+            
+            const next=document.querySelector(".next");
+            const inputs=document.querySelectorAll('input');
+            next.addEventListener('click', () => {
+                //const odp5=document.getElementById("p1");
+                if(inputs[0].checked==true){
+                    odpowiedz5=1;
+                    console.log(odpowiedz5);
+                }
+                else odpowiedz5=0;
+                clearAnswers();
+                end();
+            });
+
+        }
+
+        function end(){
+            const all=document.querySelector(".all");
+            all.remove();
+
+            const all2=document.createElement('section');
+            all2.classList.add("all");
+            const main=document.querySelector('main');
+            main.appendChild(all2);
+
+            const h2=document.createElement('h2');
+            h2.textContent="WYNIKI";
+            all2.appendChild(h2);
+
+            let wyniki=0;
+            wyniki=odpowiedz1+odpowiedz2+odpowiedz3+odpowiedz3+odpowiedz4+odpowiedz5;
+
+            const p=document.createElement('p');
+            p.textContent=`Zdobyłeś/aś ${wyniki} na 5 punktów!`;
+            all2.appendChild(p);
+
+            const button = document.createElement('button');
+            button.textContent="ODŚWIEŻ";
+            all2.appendChild(button);
+            button.classList.add('next');
+
+            button.addEventListener('click', ()=>{
+                location.reload();
+            })
+        }
+
+        const next=document.getElementById("next");
+        
         start();
         question1();
-        const next=document.getElementById("next");
-        next.addEventListener('click', question2);
-        const next2=document.querySelector(".next2");
-        //next2.addEventListener('click', question3);
-
-        
-
+        next.addEventListener('click',question2);
 
     </script>
 </body>
