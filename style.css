@@ -89,11 +89,14 @@ h1{
     margin: 0.5%;
     font-size: 1.5rem;
     font-weight:bold;
-    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.all p:hover{
-    background-color: rgba(148, 221, 255, 0.534);
+.all input{
+    width: 3vw;
+    height: 3vh;
 }
 
 .all button{

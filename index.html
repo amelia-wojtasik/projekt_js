@@ -17,9 +17,9 @@
             <button id="button">Zaczynajmy!</button>
             <section class="all">
                 <h2></h2>
-                <p id="p1"></p>
-                <p id="p2"></p>
-                <p id="p3"></p>
+                <p><input type="radio" name="odp" id="p1"></p>
+                <p><input type="radio" name="odp" id="p2"></p>
+                <p><input type="radio" name="odp" id="p3"></p>
                 <button id="next">DALEJ</button>
             </section>
         </main>
@@ -27,6 +27,9 @@
     </container>
 
     <script>
+        //zmienna przechowujaca punkty
+        let wyniki=0;
+
         function start(){
             //ukrywanie sekcji z pytaniami
             const section=document.querySelector('section');
@@ -42,8 +45,7 @@
         function question1(){
             //wyswietlenie pytania
             const pytanie=document.querySelector('h2');
-            const tresc=document.createTextNode('Ile % całego swojego życia przesypiają koty?')
-            pytanie.appendChild(tresc);
+            pytanie.textContent=`Ile % całego swojego życia przesypiają koty?`;
             //odpowiedzi
             const odpowiedzi = ["70%", "80%", "90%"];
             const p = document.querySelectorAll('p');
@@ -52,14 +54,74 @@
                 odp=document.createTextNode(`${odpowiedzi[i]}`);
                 p[i].appendChild(odp)
             }
-            p.addEventListener('click', ()=>{
-                
+            //sprawdzanie poprawnej odpowiedzi
+            const next=document.getElementById("next");
+            next.addEventListener('click', () => {
+                const odp1=document.getElementById("p1");
+                if(odp1.checked==true){
+                    console.log("poprawna odp");
+                    wyniki++;
+                }
             });
-
         }
+
+        function question2(){
+            //wyswietlenie pytania
+            const pytanie=document.querySelector('h2');
+            pytanie.textContent=`Jaki powinien być koci nos?`;
+            //odpowiedzi
+            const odpowiedzi = ["To bez znaczenia.", "Suchy.", "Mokry"];
+            const p = document.querySelectorAll('p');
+            //petla ktora wpisuje odpowiedzi do pol
+            for(let i=0;i<3;i++){
+                odp=document.createTextNode(`${odpowiedzi[i]}`);
+                p[i].appendChild(odp)
+            }
+            //sprawdzanie poprawnej odpowiedzi
+            const next=document.getElementById("next");
+            next.addEventListener('click', () => {
+                const odp3=document.getElementById("p1");
+                if(odp3.checked==true){
+                    console.log("poprawna odp");
+                    wyniki++;
+                }
+            //zmiana klasy buttona, bedzie to potrzebne potem do addeventlistenera
+            next.classList.add("next2");
+            });
+        }  
+
+        function question3(){
+            //wyswietlenie pytania
+            const pytanie=document.querySelector('h2');
+            pytanie.textContent=`Jaki powinien być koci nos?`;
+            //odpowiedzi
+            const odpowiedzi = ["To bez znaczenia", "Suchy", "Mokry"];
+            const p = document.querySelectorAll('p');
+            //petla ktora wpisuje odpowiedzi do pol
+            for(let i=0;i<3;i++){
+                odp=document.createTextNode(`${odpowiedzi[i]}`);
+                p[i].appendChild(odp)
+            }
+            //sprawdzanie poprawnej odpowiedzi
+            const next=document.getElementById("next");
+            next.addEventListener('click', () => {
+                const odp3=document.getElementById("p1");
+                if(odp3.checked==true){
+                    console.log("poprawna odp");
+                    wyniki++;
+                }
+            //zmiana klasy buttona, bedzie to potrzebne potem do addeventlistenera
+            next.classList.add("next2");
+            });
+        }  
 
         start();
         question1();
+        const next=document.getElementById("next");
+        next.addEventListener('click', question2);
+        const next2=document.querySelector(".next2");
+        //next2.addEventListener('click', question3);
+
         
 
 
