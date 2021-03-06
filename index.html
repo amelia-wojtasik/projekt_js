@@ -68,10 +68,9 @@
             }
             //sprawdzanie poprawnej odpowiedzi
             const next=document.getElementById("next");
-            const inputs=document.querySelectorAll('input');
             next.addEventListener('click', () => {
-                //const odp1=document.getElementById("p1");
-                if(inputs[0].checked==true){
+                const odp1=document.getElementById("p1");
+                if(odp1.checked==true){
                     odpowiedz1=1;
                     console.log(odpowiedz1);
                 }
@@ -92,10 +91,17 @@
             }
             
             const next=document.getElementById("next");
-            const inputs=document.querySelectorAll('input');
-            next.addEventListener('click', () => {
-                //const odp2=document.getElementById("p3");
-                if(inputs[2].checked==true){
+            next.remove();
+            
+            const next2 = document.createElement('button');
+            const all=document.querySelector(".all");
+            next2.textContent="DALEJ";
+            all.appendChild(next2);
+            next2.classList.add('next');
+
+            next2.addEventListener('click', () => {
+                const odp2=document.getElementById("p3");
+                if(odp2.checked==true){
                     odpowiedz2=1;
                     console.log(odpowiedz2);
                 }
@@ -116,11 +122,18 @@
                 p[i].textContent=`${odpowiedzi[i]}`;
             }
             
-            const next=document.querySelector(".next");
-            const inputs=document.querySelectorAll('input');
-            next.addEventListener('click', () => {
-                //const odp3=document.getElementById("p3");
-                if(inputs[2].checked==true){
+            const next2=document.querySelector(".next");
+            next2.remove();
+            
+            const next3 = document.createElement('button');
+            const all=document.querySelector(".all");
+            next3.textContent="DALEJ";
+            all.appendChild(next3);
+            next3.classList.add('next');
+            
+            next3.addEventListener('click', () => {
+                const odp3=document.getElementById("p3");
+                if(odp3.checked==true){
                     odpowiedz3=1;
                     console.log(odpowiedz3);
                 }
@@ -141,11 +154,18 @@
                 p[i].textContent=`${odpowiedzi[i]}`;
             }
             
-            const next=document.querySelector(".next");
-            const inputs=document.querySelectorAll('input');
-            next.addEventListener('click', () => {
-                //const odp4=document.getElementById("p2");
-                if(inputs[1].checked==true){
+            const next3=document.querySelector(".next");
+            next3.remove();
+            
+            const next4 = document.createElement('button');
+            const all=document.querySelector(".all");
+            next4.textContent="DALEJ";
+            all.appendChild(next4);
+            next4.classList.add('next');
+            
+            next4.addEventListener('click', () => {
+                const odp4=document.getElementById("p2");
+                if(odp4.checked==true){
                     odpowiedz4=1;
                     console.log(odpowiedz4);
                 }
@@ -166,11 +186,18 @@
                 p[i].textContent=`${odpowiedzi[i]}`;
             }
             
-            const next=document.querySelector(".next");
-            const inputs=document.querySelectorAll('input');
-            next.addEventListener('click', () => {
-                //const odp5=document.getElementById("p1");
-                if(inputs[0].checked==true){
+            const next4=document.querySelector(".next");
+            next4.remove();
+            
+            const next5 = document.createElement('button');
+            const all=document.querySelector(".all");
+            next5.textContent="DALEJ";
+            all.appendChild(next5);
+            next5.classList.add('next');
+
+            next5.addEventListener('click', () => {
+                const odp5=document.getElementById("p1");
+                if(odp5.checked==true){
                     odpowiedz5=1;
                     console.log(odpowiedz5);
                 }
@@ -195,7 +222,7 @@
             all2.appendChild(h2);
 
             let wyniki=0;
-            wyniki=odpowiedz1+odpowiedz2+odpowiedz3+odpowiedz3+odpowiedz4+odpowiedz5;
+            wyniki=odpowiedz1+odpowiedz2+odpowiedz3+odpowiedz4+odpowiedz5;
 
             const p=document.createElement('p');
             p.textContent=`Zdobyłeś/aś ${wyniki} na 5 punktów!`;
