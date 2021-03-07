@@ -143,10 +143,5 @@ h1{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.wyniki_koniec p{
-    text-align: center;
-    padding: 0.5%;
-    width: 50%;
+    margin-top:1%;
 }
