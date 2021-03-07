@@ -76,11 +76,19 @@ h1{
     align-items: center;
 }
 
+.all h2 img{
+    margin-left: 0.5%;
+}
+
 .all h2{
+    text-align: center;
     font-size: 2rem;
     background-color: rgba(80, 200, 255, 0.534);
-    padding: 3%;
+    padding: 1.5%;
     margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .all div{
@@ -94,7 +102,7 @@ h1{
 
 .all p{
     background-color: rgba(80, 200, 255, 0.534);
-    padding: 2%;
+    padding: 1.5%;
     margin: 0.5%;
     font-size: 1.5rem;
     font-weight:bold;
@@ -110,7 +118,8 @@ h1{
 
 .all .next{
     align-self: flex-end;
-    margin: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
     font-size: 1rem;
     border-radius: 20px;
     border: solid 2px rgb(255, 80, 80);
@@ -125,4 +134,19 @@ h1{
 
 .hide{
     display:none;
+}
+
+.wyniki_koniec{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wyniki_koniec p{
+    text-align: center;
+    padding: 0.5%;
+    width: 50%;
 }

@@ -145,9 +145,13 @@
 
         function question4(){
             const pytanie=document.querySelector('h2');
-            pytanie.textContent=`Ile koty mają mięśni kontrolujących uszy?`;
+            pytanie.textContent=`Jaka to rasa kota?`;
+            const img=document.createElement('img');
+            img.setAttribute("src", "./img/img4.jpeg");
+            img.setAttribute("width", "250px");
+            pytanie.appendChild(img);
             
-            const odpowiedzi = ["10", "20", "30"];
+            const odpowiedzi = ["Brytyjski", "Szkocki Zwisłouchy", "Angielski Zwisłouchy"];
             const p = document.querySelectorAll('p');
             
             for(let i=0;i<3;i++){
@@ -191,7 +195,7 @@
             
             const next5 = document.createElement('button');
             const all=document.querySelector(".all");
-            next5.textContent="DALEJ";
+            next5.textContent="WYNIKI";
             all.appendChild(next5);
             next5.classList.add('next');
 
@@ -223,10 +227,64 @@
 
             let wyniki=0;
             wyniki=odpowiedz1+odpowiedz2+odpowiedz3+odpowiedz4+odpowiedz5;
+            
+            //przerabianie imienia
+            const imie = prompt("Jak masz na imię?");
+            const litera = imie.charAt(imie.length-1);
+        
+            const pierwsza_duza_litera = (imie.charAt(0)).toUpperCase();
+            const reszta_imienia = (imie.substring(1,(imie.length))).toLowerCase();
+        
+            const przerobione_imie = pierwsza_duza_litera+reszta_imienia;
 
             const p=document.createElement('p');
-            p.textContent=`Zdobyłeś/aś ${wyniki} na 5 punktów!`;
+
+            if(litera=="a" && imie!="Kuba" && imie!="kuba"){
+                p.textContent=`${przerobione_imie}, zdobyłaś ${wyniki} na 5 punktów!`;
+            }else{
+                p.textContent=`${przerobione_imie}, zdobyłeś ${wyniki} na 5 punktów!`;
+            }
+
             all2.appendChild(p);
+            
+            //*********************************************
+            
+            const wyniki_koniec=document.createElement('div');
+            wyniki_koniec.classList.add("wyniki_koniec")
+
+            all2.appendChild(wyniki_koniec);
+
+            const q1=document.createElement("p");
+            q1.textContent=`1. Ile % całego swojego życia przesypiają koty? - ${odpowiedz1}/1`;
+            wyniki_koniec.appendChild(q1);
+            if(odpowiedz1==1) q1.style.backgroundColor='rgba(0, 255, 0, 0.486)';
+            else q1.style.backgroundColor='rgba(255, 80, 80, 0.534)';
+
+            const q2=document.createElement("p");
+            q2.textContent=`2. Jaki powinien być koci nos? - ${odpowiedz2}/1`;
+            wyniki_koniec.appendChild(q2);
+            if(odpowiedz2==1) q2.style.backgroundColor='rgba(0, 255, 0, 0.486)';
+            else q2.style.backgroundColor='rgba(255, 80, 80, 0.534)';
+            
+            const q3=document.createElement("p");
+            q3.textContent=`3. Jakiego smaku koty nie czują? - ${odpowiedz3}/1`;
+            wyniki_koniec.appendChild(q3);
+            if(odpowiedz3==1) q3.style.backgroundColor='rgba(0, 255, 0, 0.486)';
+            else q3.style.backgroundColor='rgba(255, 80, 80, 0.534)';
+            
+            const q4=document.createElement("p");
+            q4.textContent=`4. Jaka to za rasa kota? - ${odpowiedz4}/1`;
+            wyniki_koniec.appendChild(q4);
+            if(odpowiedz4==1) q4.style.backgroundColor='rgba(0, 255, 0, 0.486)';
+            else q4.style.backgroundColor='rgba(255, 80, 80, 0.534)';
+            
+            const q5=document.createElement("p");
+            q5.textContent=`5. Ile żyje przeciętny kot? - ${odpowiedz5}/1`;
+            wyniki_koniec.appendChild(q5);
+            if(odpowiedz5==1) q5.style.backgroundColor='rgba(0, 255, 0, 0.486)';
+            else q5.style.backgroundColor='rgba(255, 80, 80, 0.534)';
+            
+            //*********************************************
 
             const button = document.createElement('button');
             button.textContent="ODŚWIEŻ";
@@ -237,7 +295,6 @@
                 location.reload();
             })
         }
-
         const next=document.getElementById("next");
         
         start();
